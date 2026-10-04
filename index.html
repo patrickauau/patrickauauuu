@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Você 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== CHUVA DE CORAÇÕES NO FUNDO ===== -->
+  <div id="chuva-coracoes" aria-hidden="true"></div>
+
+  <!-- ===== TELA DE INÍCIO ===== -->
+  <section id="tela-inicio" class="tela ativa">
+    <h1 class="titulo">Nosso Cantinho</h1>
+    <p class="subtitulo">Um lugar só nosso, cheio de memórias 💕</p>
+
+    <div class="coracao-wrapper">
+  <svg class="coracao" viewBox="-62 -62 224 220" aria-hidden="true">
+    <defs>
+      <clipPath id="recorte-coracao">
+        <path d="M50 88 C 20 65 0 45 0 25 C 0 10 12 0 25 0 C 35 0 45 8 50 18 C 55 8 65 0 75 0 C 88 0 100 10 100 25 C 100 45 80 65 50 88 Z"/>
+      </clipPath>
+
+      <linearGradient id="contorno-coracao" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffd1dc"/>
+        <stop offset="45%" stop-color="#ff6b9d"/>
+        <stop offset="100%" stop-color="#c2185b"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Camada 1: moldura grossa com gradiente -->
+    <path d="M50 88 C 20 65 0 45 0 25 C 0 10 12 0 25 0 C 35 0 45 8 50 18 C 55 8 65 0 75 0 C 88 0 100 10 100 25 C 100 45 80 65 50 88 Z"
+          fill="url(#contorno-coracao)" stroke="url(#contorno-coracao)" stroke-width="8" stroke-linejoin="round"/>
+
+    <!-- Camada 2: a foto recortada dentro -->
+    <image href="fotos/casal.jpeg" x="0" y="0" width="100" height="100"
+           clip-path="url(#recorte-coracao)" preserveAspectRatio="xMidYMid slice"/>
+
+    <!-- Camada 3: fio branco entre a moldura e a foto -->
+    <path d="M50 88 C 20 65 0 45 0 25 C 0 10 12 0 25 0 C 35 0 45 8 50 18 C 55 8 65 0 75 0 C 88 0 100 10 100 25 C 100 45 80 65 50 88 Z"
+          fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round" opacity="0.85"/>
+  </svg>
+</div>
+
+    <button id="btn-iniciar" class="btn-iniciar">💖 Iniciar</button>
+  </section>
+
+  <!-- ===== GALERIA (escondida até clicar em Iniciar) ===== -->
+  <section id="tela-galeria" class="tela">
+    <button id="btn-voltar" class="btn-voltar" aria-label="Voltar ao início">&#10094; Início</button>
+
+    <h2 class="titulo-galeria">Nossas Memórias</h2>
+    
+    <div class="galeria">
+  <button id="btn-anterior" class="seta" aria-label="Foto anterior">&#10094;</button>
+
+  <img id="mini-anterior" class="mini" alt="Foto anterior">
+
+  <figure class="moldura">
+    <img id="foto-atual" src="fotos/foto1.jpeg" alt="Nossa foto">
+    <figcaption id="legenda-foto" class="legenda">Clique na foto para ampliar 💖</figcaption>
+  </figure>
+
+  <img id="mini-proximo" class="mini" alt="Próxima foto">
+
+  <button id="btn-proximo" class="seta" aria-label="Próxima foto">&#10095;</button>
+</div>
+
+    <p class="contador" id="contador">1 / 1</p>
+  </section>
+
+  <!-- ===== MODAL DE ZOOM + LEGENDA ===== -->
+<div id="modal" class="modal">
+  <div class="modal-conteudo">
+    <button id="btn-fechar" class="btn-fechar" aria-label="Fechar">&times;</button>
+    <img id="modal-imagem" src="" alt="Foto ampliada">
+    <p id="modal-legenda" class="modal-legenda"></p>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
